@@ -3,7 +3,19 @@
   <title>Koen's eerste site</title>
 </head>
 <body>
+  <div>
   <h1>Koen's eerste site</h1>
     <p>Deze site is een projectje om mezelf django te leren.</p>
+  </div>
+
+  <div>
+      {% for post in posts%}
+        <div>
+          <h2> {{post.title}} </h2>
+          <p> published: {{post.published_date}} </p>
+          <p> {{post.text|linebreaksbr}} </p>
+        </div>
+      {% endfor %}
+  </div>
 </body>
 </html>
