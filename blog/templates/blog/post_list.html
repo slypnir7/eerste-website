@@ -1,35 +1,13 @@
-{% load static %}
-<html>
-<head>
-  <!-- dit haalt files van internet-->
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  <!-- dit haalt stylesheet die ik heb gemaakt-->
-  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+{% extends 'blog/base.html' %}
 
-  <title>Koen's eerste site</title>
-</head>
-<body>
-  <div class="page-header">
-  <h1><a href="/">Koen's eerste site</a></h1>
-    <p>Deze site is een projectje om mezelf django te leren.</p>
-  </div>
-
-  <div class="content container">
-    <div class="row">
-        <div class="col-md-8">
-            {% for post in posts %}
-                <div class="post">
-                    <h2><a href="">{{ post.title }}</a></h2>
-                    <div class="date">
-                        <p>Gepubliceerd op: {{ post.published_date }}</p>
-                    </div>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-            {% endfor %}
-        </div>
+{% block content %}
+{% for post in posts %}
+  <div class="post">
+  <h2><a href="{% url 'post_detail' pk=post.pk%}">{{ post.title }}</a></h2>
+    <div class="date">
+      <p>Gepubliceerd op: {{ post.published_date }}</p>
     </div>
-</div>
-</body>
-</html>
+      <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+{% endblock %}

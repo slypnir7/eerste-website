@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+<head>
+  <!-- dit haalt files van internet-->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  <!-- dit haalt stylesheet die ik heb gemaakt-->
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+  <title>Koen's eerste site</title>
+</head>
+<body>
+    <div class="page-header">
+        <h1><a href="/">Koen's eerste site</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
